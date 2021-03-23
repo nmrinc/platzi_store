@@ -4,9 +4,14 @@ import Footer from '../../components/Footer';
 
 describe('<Footer />', () => {
 
+  const footer = mount(<Footer />);
+
   test('Footer Component Render', () => {
-    const footer = mount(Footer);
     expect(footer.length).toEqual(1);
+  });
+
+  test('Title Render', () => {
+    expect(footer.find('.Footer-title').text()).toEqual('Platzi Store');
   });
 
 });
