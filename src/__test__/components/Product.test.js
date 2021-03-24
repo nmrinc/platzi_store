@@ -9,7 +9,7 @@ describe('<Product />', () => {
     const product = shallow(
       <ProviderMock>
         <Product />
-      </ProviderMock>
+      </ProviderMock>,
     );
 
     expect(product.length).toEqual(1);
@@ -19,16 +19,12 @@ describe('<Product />', () => {
     const handleAddToCart = jest.fn();
     const wrapper = mount(
       <ProviderMock>
-        <Product
-          product={ProductMock}
-          handleAddToCart={handleAddToCart}
-        />
-      </ProviderMock>
+        <Product product={ProductMock} handleAddToCart={handleAddToCart} />
+      </ProviderMock>,
     );
 
     wrapper.find('button').simulate('click');
 
     expect(handleAddToCart).toHaveBeenCalledTimes(1);
   });
-
 });
